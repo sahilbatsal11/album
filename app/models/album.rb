@@ -1,3 +1,6 @@
 class Album < ApplicationRecord
-    belongs_to :user
+    attr_accessor :user_id,  :image 
+    validates :name, presence: true
+    belongs_to :user 
+    mount_uploader :image, ImageUploader
 end

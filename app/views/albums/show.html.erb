@@ -1,8 +1,27 @@
-<h1><%= @album.name %></h1>
+<h2> Welcome to The Album</h2>
 
-<p><%= @album.description%></p>
+<br>
+
+<p>
+ <strong>name:</strong>
+ <%= @album.name %>
+</p>
+
+
+
+<p>
+  <strong>description:</strong>
+  <%= @album.description%>
+</p>
+
+  <%= image_tag @album.image_url.to_s %>
+  
+<br>
+
 
 <ul>
-   <li><%= link_to "Edit", edit_article_path(@album) %>
+   <li><%=link_to "Edit", edit_album_path(@album) %></li>
+   <li><%= link_to "Back", albums_path %>
    </li>
 </ul>
+ 

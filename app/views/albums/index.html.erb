@@ -2,9 +2,36 @@
 
 
 
-<% @albums.each do |album|%>
-    <h1><%= album.name%></h1>
-    <p><%= album.description%></p>
-    
-<% end %>
-<% console%>
+<% if user_signed_in?%>
+    <%= link_to "new", new_album_path%>
+<%end%>
+<br></br>
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>User</th>  
+      <th>Name</th>
+      <th>Description</th>
+      <th>Show</th>
+      <th>Delete</th>
+      <th>Photos ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @albums.each do |album|%>
+     <tr>
+      <td><%= album.user.email %></td>
+      <td><%= album.name %></td>
+      <td><%= album.description %></td>
+      <td><%= link_to "Show", album_path(album), class:"btn btn-primary"%></td>
+      <td><%= button_to "Delete", album_path(album),
+      method: :delete,
+      data: { confirm: "Are you sure?" },class: "btn btn-danger"%></td>
+      <td><%= album.id %></td>
+     </tr>
+    <% end%>
+  </tbody>
+</table>
+

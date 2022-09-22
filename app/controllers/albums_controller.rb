@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
     end
     
     def create 
-        @album = current_user.albums.new(albums_paramas)
+        @album = current_user.albums.new(albums_params)
      
         if @album.save
             redirect_to @album, notice: "Created Successfully"
@@ -30,7 +30,7 @@ class AlbumsController < ApplicationController
 
     def update
         @album = Album.find(params[:id])
-         if @album.update(albums_paramas)
+         if @album.update(albums_params)
             redirect_to @album, notice: "Updated Successfully"
         else
             render :edit, alert: 'Album could not be updated'

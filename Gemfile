@@ -70,3 +70,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.8"
 
+gem 'grape'
+gem 'grape-entity'
+gem 'grape_on_rails_routes'
+
+gem "panko_serializer"
